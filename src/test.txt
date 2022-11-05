@@ -1,0 +1,23 @@
+react uses "react-testing-libray" for testing purpose
+
+But it also have "react-scripts" as a dependency which have "jest" as a dependency
+
+So in all react uses a combination of "rtl" and "jest"
+
+A sample test looks like :
+
+test("name of test","test function","time") --> but time is optional and by-default it is 5 seconds 
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+a test uses "render" method and "screen" from "react test library" 
+
+Render creates a Virtual DOM of the component to be tested 
+
+"test" & "expect" method are imported from "jest" and are avialble globally in "create-react-app"
+
+From react 17 version ,we do not require to import "react" in a component
