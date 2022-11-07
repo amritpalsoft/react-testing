@@ -1,4 +1,4 @@
-react uses "react-testing-libray" for testing purpose
+React uses "react-testing-libray" for testing purpose
 
 But it also have "react-scripts" as a dependency which have "jest" as a dependency
 
@@ -21,3 +21,55 @@ Render creates a Virtual DOM of the component to be tested
 "test" & "expect" method are imported from "jest" and are avialble globally in "create-react-app"
 
 From react 17 version ,we do not require to import "react" in a component
+
+Jest watch-mode --> in create-react-app , when we run npm test , it automatically runs JEST watch-mode 
+                    So in watch-mode jest checks only files which are changed since the last-commit, this is 
+                    a good way to reduce the load for a large code-base
+
+We can also Filter which tet to run and which to skip , there are various options given to us 
+And if want to run a Particular test only ,then we can write test.only()                     
+
+And if want to skip a Particular test ,then we can write test.skip()
+
+If we want to group multiple test under a block , then we can use describe()
+
+describe("name of blcok",()=>{
+  test('test 1',()=>{
+
+  })
+
+  test('test 2',()=>{
+
+  })
+})
+
+we can also use "only" &  "skip" methods with describe 
+
+We can use multiple "describe" methods in a single file
+
+In Jest ,test suite is considered to be a file , i.e. 1 file === 1 test suite 
+
+Naming convention in creat-react-app --> name.test.js , name.test.tsx , name.spec.js , name.spec.tsx 
+Or we can use use --> put all .js file to be tested in a folder "__test__"
+
+Instead of using test() method we can also use it() method 
+
+test.only() can be replaced by fit()
+
+test.skip() can be replaced by xit()
+
+Code Coverage --> in Jest we have also a feature of code coverage , by which we can check how much
+                  percent of our code is covered by test cases.
+                  To run code coverage we add a script in package.json
+                  npm test --coverage --watchAll
+                  --watchAll -->statement is for covering all the test
+
+                 If we want jest to check for test in a particular folder only then we can write like this
+
+                 npm test --coverage --watchAll --collectCoverageFrom="src/components/**/*.{js,jsx}" 
+
+
+Jest assertions --> we use jest matchers function for assertions
+They are provided by jest package , and can be seen in jest website
+But these matcher function are only for backend code  and can't check DOM nodes
+So we use jest-dom package which provide matcher function by which we can check DOM nodes                  
